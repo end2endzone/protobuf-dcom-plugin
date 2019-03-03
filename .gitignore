@@ -1,0 +1,34 @@
+/COM Server Registry Dump/COM Server Registry Dump/bin
+/COM Server Registry Dump/COM Server Registry Dump/obj
+/COM Server Registry Dump/*.sdf
+/COM Server Registry Dump/*.suo
+/COM Server Registry Dump/COM Server Registry Dump/*.user
+/COM Server Registry Dump/RegistryManipulatorLib/*.user
+/COM Server Registry Dump/TestResults
+/COM Server Registry Dump/RegistryManipulatorLib/bin
+/COM Server Registry Dump/RegistryManipulatorLib/obj
+/COM Server Registry Dump/RegistryManipulatorTests/bin
+/COM Server Registry Dump/RegistryManipulatorTests/obj
+/sample/templateFiles/*.user
+/sample/sourceFiles/Release
+/sample/sourceFiles/Debug
+/sample/sourceFiles/*.user
+/sample/sourceFiles/*.sdf
+/sample/sourceFiles/*.suo
+/src/Debug
+/src/Release
+/src/FileRepository/Debug
+/src/FileRepository/Release
+/src/libDCOM/Debug
+/src/libDCOM/Release
+/src/protobuf-dcom-plugin/Debug
+/src/protobuf-dcom-plugin/Release
+/src/protobuf-dcom-plugin-tests/Debug
+/src/protobuf-dcom-plugin-tests/Release
+/src/*.sdf
+/src/*.suo
+/src/protobuf-dcom-plugin-tests/*.user
+/src/protobuf-dcom-plugin/*.user
+/src/libDCOM/*.user
+/src/ipch
+/src/FileRepository/*.user
