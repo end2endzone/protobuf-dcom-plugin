@@ -23,8 +23,8 @@
 /src/libDCOM/Release
 /src/protobuf-dcom-plugin/Debug
 /src/protobuf-dcom-plugin/Release
-/src/protobuf-dcom-plugin-tests/Debug
-/src/protobuf-dcom-plugin-tests/Release
+/test/protobuf-dcom-plugin-unittest/Debug
+/test/protobuf-dcom-plugin-unittest/Release
 /src/*.sdf
 /src/*.suo
 /src/protobuf-dcom-plugin-tests/*.user
