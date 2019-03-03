@@ -1,0 +1,2 @@
+﻿--class=DemoServer.object --of=c:\temp\DemoServer.registry.reg
+--class=TestBuildFull.Application --of=c:\temp\TestBuildFull.Application.reg
