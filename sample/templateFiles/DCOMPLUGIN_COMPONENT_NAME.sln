@@ -1,0 +1,40 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCOMPLUGIN_COMPONENT_NAMEClient", "DCOMPLUGIN_COMPONENT_NAMEClient.vcxproj", "{DCOMPLUGIN_CLIENT_PROJECT_GUID_UPPER}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCOMPLUGIN_COMPONENT_NAMEServer", "DCOMPLUGIN_COMPONENT_NAMEServer.vcxproj", "{DCOMPLUGIN_SERVER_PROJECT_GUID_UPPER}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCOMPLUGIN_COMPONENT_NAMEProtoLib", "DCOMPLUGIN_COMPONENT_NAMEProtoLib.vcxproj", "{DCOMPLUGIN_PROTOLIB_PROJECT_GUID_UPPER}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCOMPLUGIN_COMPONENT_NAMEServerImpl", "DCOMPLUGIN_COMPONENT_NAMEServerImpl.vcxproj", "{DCOMPLUGIN_SERVER_IMPL_PROJECT_GUID_UPPER}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCOMPLUGIN_CLIENT_PROJECT_GUID_UPPER}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCOMPLUGIN_CLIENT_PROJECT_GUID_UPPER}.Debug|Win32.Build.0 = Debug|Win32
+		{DCOMPLUGIN_CLIENT_PROJECT_GUID_UPPER}.Release|Win32.ActiveCfg = Release|Win32
+		{DCOMPLUGIN_CLIENT_PROJECT_GUID_UPPER}.Release|Win32.Build.0 = Release|Win32
+		{DCOMPLUGIN_SERVER_PROJECT_GUID_UPPER}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCOMPLUGIN_SERVER_PROJECT_GUID_UPPER}.Debug|Win32.Build.0 = Debug|Win32
+		{DCOMPLUGIN_SERVER_PROJECT_GUID_UPPER}.Release|Win32.ActiveCfg = Release|Win32
+		{DCOMPLUGIN_SERVER_PROJECT_GUID_UPPER}.Release|Win32.Build.0 = Release|Win32
+		{DCOMPLUGIN_PROTOLIB_PROJECT_GUID_UPPER}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCOMPLUGIN_PROTOLIB_PROJECT_GUID_UPPER}.Debug|Win32.Build.0 = Debug|Win32
+		{DCOMPLUGIN_PROTOLIB_PROJECT_GUID_UPPER}.Release|Win32.ActiveCfg = Release|Win32
+		{DCOMPLUGIN_PROTOLIB_PROJECT_GUID_UPPER}.Release|Win32.Build.0 = Release|Win32
+		{DCOMPLUGIN_SERVER_IMPL_PROJECT_GUID_UPPER}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DCOMPLUGIN_SERVER_IMPL_PROJECT_GUID_UPPER}.Debug|Win32.Build.0 = Debug|Win32
+		{DCOMPLUGIN_SERVER_IMPL_PROJECT_GUID_UPPER}.Release|Win32.ActiveCfg = Release|Win32
+		{DCOMPLUGIN_SERVER_IMPL_PROJECT_GUID_UPPER}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,161 @@
+<job id="MainProg">
+  <script language="VBScript" src="functions.vbs"/>
+  <script language="VBScript">
+
+    dim className
+    'className = "MyAltComServer.MyServerImpl"
+    className = "DemoServer.object"
+
+    dim registryFile
+    registryFile = getEnvironmentVariable("temp") & "\!comserver_registry.reg"
+    'MsgBox "registryFile=" & registryFile, vbOKOnly+vbInformation, DEFAULT_CAPTION
+    
+    ExtractComServerRegistry className, registryFile
+    
+    MsgBox "Done!", vbOKOnly+vbInformation, Wscript.ScriptName
+
+
+
+
+    Sub ExtractComServerRegistry(className, filePath)
+      dim DEFAULT_CAPTION
+      DEFAULT_CAPTION = Wscript.ScriptName
+
+      MsgBox "Searching registry for object '" & className & "'", vbOKOnly+vbInformation, DEFAULT_CAPTION
+    
+      dim CLSID
+      CLSID = getRegistryValue("HKEY_CLASSES_ROOT\" & className & "\CLSID\", "error")
+      'MsgBox "CLSID=" & CLSID, vbOKOnly+vbInformation, DEFAULT_CAPTION
+    
+      dim CurVer
+      CurVer = getRegistryValue("HKEY_CLASSES_ROOT\" & className & "\CurVer\", "error")
+      'MsgBox "CurVer=" & CurVer, vbOKOnly+vbInformation, DEFAULT_CAPTION
+    
+      dim CurVerCLSID
+      CurVerCLSID = getRegistryValue("HKEY_CLASSES_ROOT\" & CurVer & "\CLSID\", "error")
+      'MsgBox "CurVerCLSID=" & CurVerCLSID, vbOKOnly+vbInformation, DEFAULT_CAPTION
+    
+      dim LocalServer32
+      LocalServer32 = getRegistryValue("HKEY_CLASSES_ROOT\Wow6432Node\CLSID\" & CurVerCLSID & "\LocalServer32\", "error")
+      LocalServer32 = StringTrim(LocalServer32, """")
+      'MsgBox "LocalServer32=" & LocalServer32, vbOKOnly+vbInformation, DEFAULT_CAPTION
+    
+      'Identify exec filename
+      dim execFilename, filenameExt
+      filenameExt = getFileExtension(LocalServer32)
+      execFilename = getNameOfFile(LocalServer32)
+      If filenameExt <> "" Then
+        execFilename = execFilename & "." & filenameExt
+      End If
+      'MsgBox "execFilename=" & execFilename, vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+      dim AppID
+      AppID = getRegistryValue("HKEY_CLASSES_ROOT\AppID\" & execFilename & "\AppID", "error")
+      'MsgBox "AppID=" & AppID, vbOKOnly+vbInformation, "COM Server Registry Dump"
+    
+      dim AppIDName
+      AppIDName = getRegistryValue("HKEY_CLASSES_ROOT\AppID\" & AppID & "\", "error")
+      'MsgBox "AppIDName=" & AppIDName, vbOKOnly+vbInformation, "COM Server Registry Dump"
+
+      dim TypeLib
+      TypeLib = getRegistryValue("HKEY_CLASSES_ROOT\Wow6432Node\CLSID\" & CurVerCLSID & "\TypeLib\", "error")
+      'MsgBox "TypeLib=" & TypeLib, vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+
+      MsgBox "Searching interfaces of object '" & className & "'." & vbNewLine & "This may take some time...", vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+      dim systemInterfaces
+      Set systemInterfaces = getRegistrySubKeys("HKEY_CLASSES_ROOT\Interface", false)
+    
+      ''DEBUG INTERFACES!
+      'systemInterfaces.Clear
+      'systemInterfaces.Add "HKEY_CLASSES_ROOT\Interface\{ED3F22F0-8C5D-4901-A149-4B2D09D0238C}"
+      'systemInterfaces.Add "HKEY_CLASSES_ROOT\Interface\{ED47ABE7-C84B-39F9-BE1B-828CFB925AFE}"
+      'systemInterfaces.Add "HKEY_CLASSES_ROOT\Interface\{ED47AEED-ECBA-484E-A7E1-2D3607F7C941}"
+    
+      dim interfaces
+      Set interfaces = CreateObject("System.Collections.ArrayList")
+
+      If Not IsNull(systemInterfaces) Then
+        For Each interfaceKey In systemInterfaces
+          'MsgBox "interfaceKey=" & interfaceKey, vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+          'look for the interfaceKey's typelib
+          dim interfaceTypeLib
+          interfaceTypeLib = getRegistryValue(interfaceKey & "\TypeLib\", "error")
+          'MsgBox "interfaceTypeLib=" & interfaceTypeLib, vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+          'is this interface from our class ?
+          If interfaceTypeLib = TypeLib Then
+            dim interfaceName
+            interfaceName = getRegistryValue(interfaceKey & "\", "error")
+            'MsgBox "interfaceName=" & interfaceName, vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+            dim interfaceGuid
+            interfaceGuid = Replace(interfaceKey, "HKEY_CLASSES_ROOT\Interface\", "")
+
+            interfaces.Add interfaceGuid
+
+            'Show progress
+            MsgBox "Found new interface: " & interfaceName & ", " & interfaceGuid, vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+          End If
+        Next
+      End If
+
+      MsgBox "Done searching. Exporting registry to file...", vbOKOnly+vbInformation, DEFAULT_CAPTION
+
+      'Start exporting all registry
+      dim fullRegistry
+      fullRegistry = ""
+      AppendRegistryKey "HKEY_CLASSES_ROOT\AppID\" & execFilename, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\AppID\" & AppID, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\Wow6432Node\AppID\" & execFilename, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\Wow6432Node\AppID\" & AppID, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\" & className, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\" & CurVer, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\Wow6432Node\CLSID\" & CurVerCLSID, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\TypeLib\" & TypeLib, fullRegistry
+      AppendRegistryKey "HKEY_CLASSES_ROOT\Wow6432Node\TypeLib\" & TypeLib, fullRegistry
+
+      For Each interfaceGuid In interfaces
+        AppendRegistryKey "HKEY_CLASSES_ROOT\Interface\" & interfaceGuid, fullRegistry
+      Next
+
+      'append registry header at the beginning
+      dim header
+      header = header & Chr(&hFF)
+      header = header & Chr(&hFE)
+      header = header & toUnicodeString("Windows Registry Editor Version 5.00" & vbNewLine & vbNewLine)
+      fullRegistry = header & fullRegistry
+
+      'save output to a file
+      deleteFile filePath
+      'MsgBox "fullRegistry=" & fullRegistry, vbOKOnly+vbInformation, DEFAULT_CAPTION
+      writeBinary fullRegistry, filePath
+    End Sub
+
+    Sub AppendRegistryKey(key, variable)
+      dim tempFile
+      tempFile = getEnvironmentVariable("temp") & "\!AppendRegistryKey.tmp"
+      'MsgBox "tempFile=" & tempFile, vbOKOnly+vbInformation, DEFAULT_CAPTION
+      deleteFile tempFile
+
+      'Export required registry to a temp file
+      RegistryExport key, tempFile
+
+      If Not fileExists(tempFile) Then
+        MsgBox "Failed extracting registry information from the following key:" & vbNewLine & key, vbOKOnly+vbCritical, DEFAULT_CAPTION
+        WScript.Quit(1)
+      End If
+
+      'Remove UNICODE header in *.reg file
+      removeRegistryHeader tempFile
+
+      'Merge tempFile content to filePath
+      dim content
+      content = readBinary(tempFile)
+      variable = variable & content
+    End Sub
+  </script>
+</job>

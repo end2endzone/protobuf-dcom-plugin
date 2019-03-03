@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoTestCSharp", "DemoTestCSharp.csproj", "{C9C01C3F-A70A-4FC0-A8C9-05141A0F7208}"
+EndProject
+Global
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9C01C3F-A70A-4FC0-A8C9-05141A0F7208}.Debug|x86.ActiveCfg = Debug|x86
+		{C9C01C3F-A70A-4FC0-A8C9-05141A0F7208}.Debug|x86.Build.0 = Debug|x86
+		{C9C01C3F-A70A-4FC0-A8C9-05141A0F7208}.Release|x86.ActiveCfg = Release|x86
+		{C9C01C3F-A70A-4FC0-A8C9-05141A0F7208}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

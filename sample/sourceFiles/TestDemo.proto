@@ -1,0 +1,40 @@
+package testdemo;
+
+import "dcomplugin.proto";
+
+option (dcomplugin.component).name                    = "Demo";
+option (dcomplugin.component).object.name             = "DemoServer.object";
+option (dcomplugin.component).object.friendlyname     = "DemoServer object";
+option (dcomplugin.component).object.id.guid          = "6AE24C34-1466-482e-9407-90B98798A712";
+option (dcomplugin.component).object.id.helpstring    = "object";
+option (dcomplugin.component).library.name            = "LibDemoServer";
+option (dcomplugin.component).library.id.guid         = "6F818C55-E6AD-488b-9EB6-511C0CCC0612";
+option (dcomplugin.component).library.id.helpstring   = "library helpstring";
+option (dcomplugin.component).idispatch.guid          = "7F24AABF-C822-4c18-9432-21433208F4DC";
+option (dcomplugin.component).idispatch.helpstring    = "interface helpstring";
+option (dcomplugin.component).ifileio.guid            = "abc";
+option (dcomplugin.component).ifileio.helpstring      = "ifileio helpstring";
+option (dcomplugin.component).iunknown.guid           = "00020424-0000-0000-C000-000000000046";
+option (dcomplugin.component).iunknown.helpstring     = "iunknown helpstring";
+option (dcomplugin.component).coclass.guid            = "6AE24C34-1466-482e-9407-90B98798A712";
+option (dcomplugin.component).coclass.helpstring      = "coclass helpstring";
+
+message VoidMessage {
+}
+message SequentialNumber {
+  required int32 value = 1;
+}
+service CounterService {
+  rpc GetSequentialNumber (VoidMessage) returns (SequentialNumber);
+}
+
+
+message HelloRequest {
+  required string name = 1;
+}
+message HelloResponse {
+  required string greetings = 1;
+}
+service TextService {
+  rpc Hello (HelloRequest) returns (HelloResponse);
+}

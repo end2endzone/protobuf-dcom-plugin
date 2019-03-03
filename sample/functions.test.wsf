@@ -1,0 +1,66 @@
+<job id="MainProg">
+  <script language="VBScript" src="functions.vbs"/>
+  <script language="VBScript">
+    'test loadTextFile()
+    strText = loadTextFile("functions.test.wsf")
+
+    'test saveFile()
+    saveFile strText, "functions.test.wsf.copy.txt"
+
+    'test replace
+    strText = "I went skiing with Jack!"
+    saveFile strText, "foo.txt"
+    replaceInFile "foo.txt", "Jack", "John"
+
+    'test replaceXmlCommentBlock()
+    strText = ""
+    strText = strText & "line1" & vbNewLine
+    strText = strText & "///<BAR>" & vbNewLine
+    strText = strText & "line2" & vbNewLine
+    strText = strText & "///</BAR>" & vbNewLine
+    strText = strText & "line3"
+    saveFile strText, "bar_before.txt"
+    replaceXmlCommentBlock strText, "BAR"
+    saveFile strText, "bar_after.txt"
+
+    'test isVcxProjFile()
+    strFile = "templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.vcxproj"
+    strText = loadTextFile(strFile)
+    WScript.Echo "isVcxProjFile(""" & strFile & """)=" & isVcxProjFile(strText)
+    strFile = "templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.h"
+    strText = loadTextFile(strFile)
+    WScript.Echo "isVcxProjFile(""" & strFile & """)=" & isVcxProjFile(strText)
+    strFile = "templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.vcxproj.filters"
+    strText = loadTextFile(strFile)
+    WScript.Echo "isVcxProjFile(""" & strFile & """)=" & isVcxProjFile(strText)
+
+    'test isVcxProjFilterFile()
+    strFile = "templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.vcxproj"
+    strText = loadTextFile(strFile)
+    WScript.Echo "isVcxProjFilterFile(""" & strFile & """)=" & isVcxProjFilterFile(strText)
+    strFile = "templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.h"
+    strText = loadTextFile(strFile)
+    WScript.Echo "isVcxProjFilterFile(""" & strFile & """)=" & isVcxProjFilterFile(strText)
+    strFile = "templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.vcxproj.filters"
+    strText = loadTextFile(strFile)
+    WScript.Echo "isVcxProjFilterFile(""" & strFile & """)=" & isVcxProjFilterFile(strText)
+
+    'test getFileExtension()
+    strText = "\\foo\bar\myfile.txt"
+    WScript.Echo "getFileExtension(""" & strText & """)=" & getFileExtension(strText)
+
+    'test getNameOfFile()
+    strText = "\\foo\bar\myfile.txt"
+    WScript.Echo "getNameOfFile(""" & strText & """)=" & getNameOfFile(strText)
+
+    'test removeProjectFile()
+    strText = loadTextFile("sourceFiles\DemoClient.vcxproj")
+    removeProjectFile strText, "DemoClient.cpp"
+    removeProjectFile strText, "DemoClient.h"
+    saveFile strText, "test.vcxproj"
+    strText = loadTextFile("sourceFiles\DemoClient.vcxproj.filters")
+    removeProjectFile strText, "DemoClient.cpp"
+    removeProjectFile strText, "DemoClient.h"
+    saveFile strText, "test.vcxproj.filters"
+  </script>
+</job>

@@ -1,0 +1,33 @@
+package dcomplugin;
+
+import "google/protobuf/descriptor.proto";
+
+message Identifier {
+  optional string guid = 1;
+  optional string helpstring = 2;
+}
+
+message Library {
+  optional string name = 1;
+  optional Identifier id = 2;
+}
+
+message Object {
+  optional string name = 1;
+  optional string friendlyname = 2;
+  optional Identifier id = 3;
+}
+
+message Component {
+  optional string name = 1;
+  optional Object object = 2;
+  optional Library library = 3;
+  optional Identifier idispatch = 4;
+  optional Identifier ifileio = 5;
+  optional Identifier iunknown = 6;
+  optional Identifier coclass = 7;
+}
+
+extend google.protobuf.FileOptions {
+  optional Component component = 50000;
+}

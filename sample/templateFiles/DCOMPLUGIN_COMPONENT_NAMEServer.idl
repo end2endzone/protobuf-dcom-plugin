@@ -1,0 +1,39 @@
+// DCOMPLUGIN_COMPONENT_NAMEServer.idl : IDL source for DCOMPLUGIN_COMPONENT_NAMEServer
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (DCOMPLUGIN_COMPONENT_NAMEServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+  object,
+  uuid(DCOMPLUGIN_IDL_INTERFACE_GUID),
+	dual,
+	nonextensible,
+  helpstring("DCOMPLUGIN_IDL_INTERFACE_HELPSTRING"),
+  dual,
+	pointer_default(unique)
+]
+interface DCOMPLUGIN_IDL_INTERFACE_NAMEServer : IDispatch
+{
+DCOMPLUGIN_IDL_SERVICES_DECLARATION
+};
+[
+  uuid(DCOMPLUGIN_LIBRARY_GUID),
+  version(1.0),
+  helpstring("DCOMPLUGIN_LIBRARY_HELPSTRING")
+]
+library DCOMPLUGIN_LIBRARY_NAME
+{
+	importlib("stdole2.tlb");
+  [
+    uuid(DCOMPLUGIN_COCLASS_GUID),
+    helpstring("DCOMPLUGIN_COCLASS_HELPSTRING") 
+  ]
+  coclass CoDCOMPLUGIN_COMPONENT_NAMEServer
+  {
+    [default] interface DCOMPLUGIN_IDL_INTERFACE_NAMEServer;
+  };
+};

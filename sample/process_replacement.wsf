@@ -1,0 +1,61 @@
+<job id="MainProg">
+  <script language="VBScript" src="functions.vbs"/>
+  <script language="VBScript">
+    ' Usage:
+    '   arg 0 is input file
+    '
+    
+    'load file into memory
+    strFile = WScript.Arguments.Item(0)
+    strText = loadTextFile(strFile)
+
+    'Proceed with file formatting...
+
+    removeProjectFile strText, "ITextService.h"
+    removeProjectFile strText, "dcomplugin.bat"
+    removeProjectFile strText, "dcomplugin.proto"
+    removeProjectFile strText, "TestDemo.bat"
+
+    strText = Replace(strText, "C9E4541F-B62B-4F99-B38C-F1EBA9C249A4", "DCOMPLUGIN_CLIENT_PROJECT_GUID_UPPER")
+    strText = Replace(strText, "c9e4541f-b62b-4f99-b38c-f1eba9c249a4", "DCOMPLUGIN_CLIENT_PROJECT_GUID_LOWER")
+    strText = Replace(strText, "8D9E6E2B-9970-4AD0-89C5-3A82D572FD97", "DCOMPLUGIN_PROTOLIB_PROJECT_GUID_UPPER")
+    strText = Replace(strText, "8d9e6e2b-9970-4ad0-89c5-3a82d572fd97", "DCOMPLUGIN_PROTOLIB_PROJECT_GUID_LOWER")
+    strText = Replace(strText, "4741C73A-B826-41F7-AF7E-2616FC6175FA", "DCOMPLUGIN_SERVER_PROJECT_GUID_UPPER")
+    strText = Replace(strText, "4741c73a-b826-41f7-af7e-2616fc6175fa", "DCOMPLUGIN_SERVER_PROJECT_GUID_LOWER")
+    strText = Replace(strText, "43AF3AB1-8668-4355-BBFA-B9B35DF40B5B", "DCOMPLUGIN_SERVER_IMPL_PROJECT_GUID_UPPER")
+    strText = Replace(strText, "43af3ab1-8668-4355-bbfa-b9b35df40b5b", "DCOMPLUGIN_SERVER_IMPL_PROJECT_GUID_LOWER")
+    strText = Replace(strText, "ServerImpl.cpp", "ServerImpl.template.cpp")
+    strText = Replace(strText, "TestDemo.", "DCOMPLUGIN_PROTO_FILE_NAME.")
+    strText = Replace(strText, "testdemo", "DCOMPLUGIN_PACKAGE_NAME")
+    strText = Replace(strText, "DemoServer object", "DCOMPLUGIN_OBJECT_FRIENDLYNAME")
+    strText = Replace(strText, "DemoServer.object", "DCOMPLUGIN_OBJECT_NAME")
+    strText = Replace(strText, "LibDemoServer", "DCOMPLUGIN_LIBRARY_NAME")
+    strText = Replace(strText, "IDemo", "DCOMPLUGIN_IDL_INTERFACE_NAME")
+    strText = Replace(strText, "Demo", "DCOMPLUGIN_COMPONENT_NAME")
+    strText = Replace(strText, "BD4F1636-820F-4499-9878-69B055547BE5", "DCOMPLUGIN_APPID_GUID")
+    strText = Replace(strText, "6F818C55-E6AD-488b-9EB6-511C0CCC0612", "DCOMPLUGIN_LIBRARY_GUID")
+    strText = Replace(strText, "library helpstring", "DCOMPLUGIN_LIBRARY_HELPSTRING")
+    strText = Replace(strText, "7F24AABF-C822-4c18-9432-21433208F4DC", "DCOMPLUGIN_IDL_INTERFACE_GUID")
+    strText = Replace(strText, "interface helpstring", "DCOMPLUGIN_IDL_INTERFACE_HELPSTRING")
+    strText = Replace(strText, "6AE24C34-1466-482e-9407-90B98798A712", "DCOMPLUGIN_COCLASS_GUID")
+    strText = Replace(strText, "coclass helpstring", "DCOMPLUGIN_COCLASS_HELPSTRING")
+
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_CLIENT_DEFINITION"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_ALL_SERVICES_DECLARATION"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_ALL_SERVICES_INCLUDE_LIST"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_ALL_SERVICES_VIRTUAL_IMPL"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_IDL_SERVICES_DECLARATION"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_COCLASS_DEFINITION"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_COCLASS_DECLARATION"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_CURRENT_SERVICE_INTERFACE_DECLARATION"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_SERVER_IMPL_TEMPLATE_GLOBAL"
+    replaceXmlCommentBlock strText, "DCOMPLUGIN_SERVER_IMPL_TEMPLATE_DEFINITION"
+
+    strText = Replace(strText, "    <ClInclude Include=""ICounterService.h"" />", "    <DCOMPLUGIN_ALL_SERVICES_VCXPROJ />")
+    strText = Replace(strText, "<ClInclude Include=""ICounterService.h"">" & vbNewLine & "      <Filter>Services</Filter>" & vbNewLine & "    </ClInclude>", "<DCOMPLUGIN_ALL_SERVICES_FILTERS />")
+
+    'save modifications back to file
+    saveFile strText, strFile
+
+  </script>
+</job>

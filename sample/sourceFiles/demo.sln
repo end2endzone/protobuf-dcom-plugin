@@ -1,0 +1,40 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoClient", "DemoClient.vcxproj", "{C9E4541F-B62B-4F99-B38C-F1EBA9C249A4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoServer", "DemoServer.vcxproj", "{4741C73A-B826-41F7-AF7E-2616FC6175FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoProtoLib", "DemoProtoLib.vcxproj", "{8D9E6E2B-9970-4AD0-89C5-3A82D572FD97}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DemoServerImpl", "DemoServerImpl.vcxproj", "{43AF3AB1-8668-4355-BBFA-B9B35DF40B5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9E4541F-B62B-4F99-B38C-F1EBA9C249A4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C9E4541F-B62B-4F99-B38C-F1EBA9C249A4}.Debug|Win32.Build.0 = Debug|Win32
+		{C9E4541F-B62B-4F99-B38C-F1EBA9C249A4}.Release|Win32.ActiveCfg = Release|Win32
+		{C9E4541F-B62B-4F99-B38C-F1EBA9C249A4}.Release|Win32.Build.0 = Release|Win32
+		{4741C73A-B826-41F7-AF7E-2616FC6175FA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4741C73A-B826-41F7-AF7E-2616FC6175FA}.Debug|Win32.Build.0 = Debug|Win32
+		{4741C73A-B826-41F7-AF7E-2616FC6175FA}.Release|Win32.ActiveCfg = Release|Win32
+		{4741C73A-B826-41F7-AF7E-2616FC6175FA}.Release|Win32.Build.0 = Release|Win32
+		{8D9E6E2B-9970-4AD0-89C5-3A82D572FD97}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8D9E6E2B-9970-4AD0-89C5-3A82D572FD97}.Debug|Win32.Build.0 = Debug|Win32
+		{8D9E6E2B-9970-4AD0-89C5-3A82D572FD97}.Release|Win32.ActiveCfg = Release|Win32
+		{8D9E6E2B-9970-4AD0-89C5-3A82D572FD97}.Release|Win32.Build.0 = Release|Win32
+		{43AF3AB1-8668-4355-BBFA-B9B35DF40B5B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{43AF3AB1-8668-4355-BBFA-B9B35DF40B5B}.Debug|Win32.Build.0 = Debug|Win32
+		{43AF3AB1-8668-4355-BBFA-B9B35DF40B5B}.Release|Win32.ActiveCfg = Release|Win32
+		{43AF3AB1-8668-4355-BBFA-B9B35DF40B5B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal
