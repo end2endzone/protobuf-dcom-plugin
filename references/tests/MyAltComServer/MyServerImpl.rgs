@@ -1,0 +1,23 @@
+HKCR
+{
+	MyAltComServer.MyServerImpl.1 = s 'MyServerImpl Class'
+	{
+		CLSID = s '{FF6822E5-194F-47DE-91A9-E7E1CC0F0669}'
+	}
+	MyAltComServer.MyServerImpl = s 'MyServerImpl Class'
+	{
+		CLSID = s '{FF6822E5-194F-47DE-91A9-E7E1CC0F0669}'
+		CurVer = s 'MyAltComServer.MyServerImpl.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {FF6822E5-194F-47DE-91A9-E7E1CC0F0669} = s 'MyServerImpl Class'
+		{
+			ProgID = s 'MyAltComServer.MyServerImpl.1'
+			VersionIndependentProgID = s 'MyAltComServer.MyServerImpl'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{8024CE50-E8D0-4A2C-A96A-A1924333D833}'
+		}
+	}
+}

@@ -1,0 +1,38 @@
+// MyAltComServer.idl : IDL source for MyAltComServer
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (MyAltComServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(ED3F22F0-8C5D-4901-A149-4B2D09D0238C),
+	dual,
+	nonextensible,
+	helpstring("IMyServerImpl Interface"),
+	pointer_default(unique)
+]
+interface IMyServerImpl : IDispatch{
+  [id(1), helpstring("method FooBar")] HRESULT FooBar([in] VARIANT* input, [out,retval] VARIANT* output);
+  [id(2), helpstring("method GetBar")] HRESULT GetBar([out,retval] BSTR** barvalue);
+};
+[
+	uuid(8024CE50-E8D0-4A2C-A96A-A1924333D833),
+	version(1.0),
+	helpstring("MyAltComServer 1.0 Type Library")
+]
+library MyAltComServerLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(FF6822E5-194F-47DE-91A9-E7E1CC0F0669),
+		helpstring("MyServerImpl Class")
+	]
+	coclass MyServerImpl
+	{
+		[default] interface IMyServerImpl;
+	};
+};

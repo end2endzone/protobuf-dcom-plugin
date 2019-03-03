@@ -1,0 +1,50 @@
+syntax = "proto2";
+
+import "dcomplugin.proto";
+package testbuildfull;
+
+option (.dcomplugin.component) = {
+  name: "TestBuildFull"
+  typelib {
+    name: "TestBuildFullLib"
+    id {
+      guid: "61F65486-1DAF-4157-ADB2-0C745AF1C40D"
+      helpstring: "TestBuildFull 1.0 Type Library"
+    }
+    cointerface {
+      id {
+        guid: "44ACE333-2131-469D-B9EB-5D0C9A9FD47D"
+        helpstring: "ITestBuildFullServer Interface"
+      }
+    }
+    coclass {
+      name: "TestBuildFull.Application"
+      friendlyname: "TestBuildFull Class"
+      id {
+        guid: "529098BE-18D1-4681-B136-7EAF55CD576F"
+        helpstring: "TestBuildFullServerImpl Class"
+      }
+    }
+  }
+  appid {
+    guid: "22B33738-9218-4FE0-B378-A36366C4A3B0"
+    helpstring: "AppID"
+  }
+};
+
+message BarRequest {
+  required int32 value = 1;
+}
+
+message FooResponse {
+  required int32 value = 1;
+}
+
+message VoidMessage {
+}
+
+service PhoneBookService {
+  rpc Bar(.testbuildfull.BarRequest) returns (.testbuildfull.VoidMessage);
+  rpc Foo(.testbuildfull.VoidMessage) returns (.testbuildfull.FooResponse);
+}
+

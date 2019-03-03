@@ -1,0 +1,45 @@
+// TestBuildFullServer.idl : IDL source for TestBuildFullServer
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (TestBuildFullServer.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+  object,
+  uuid(44ACE333-2131-469D-B9EB-5D0C9A9FD47D),
+	dual,
+	nonextensible,
+  helpstring("ITestBuildFullServer Interface"),
+  dual,
+	pointer_default(unique)
+]
+interface ITestBuildFullServer : IDispatch
+{
+    ///<GENERATEDCODE>
+    //IPhoneBookService:
+    [id(1)] HRESULT Bar([in] VARIANT requestBuffer);
+
+    //IPhoneBookService:
+    [id(2)] HRESULT Foo([out, retval] VARIANT* responseBuffer);
+    ///</GENERATEDCODE>
+};
+[
+  uuid(61F65486-1DAF-4157-ADB2-0C745AF1C40D),
+  version(1.0),
+  helpstring("TestBuildFull 1.0 Type Library")
+]
+library TestBuildFullLib
+{
+	importlib("stdole2.tlb");
+  [
+    uuid(529098BE-18D1-4681-B136-7EAF55CD576F),
+    helpstring("TestBuildFullServerImpl Class") 
+  ]
+  coclass CoTestBuildFullServer
+  {
+    [default] interface ITestBuildFullServer;
+  };
+};

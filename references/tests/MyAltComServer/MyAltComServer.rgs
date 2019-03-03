@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'MyAltComServer'
+		'MyAltComServer.EXE'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}
