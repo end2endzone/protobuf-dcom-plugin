@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Tests">
+      <UniqueIdentifier>{68b8070a-f087-40ab-9c3d-ed9e7b99aed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{600fa715-181e-4d55-a41b-53c79544037e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Demo">
+      <UniqueIdentifier>{33b24e27-fee5-4281-ab6c-3d7a70c05661}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\TestPluginRun">
+      <UniqueIdentifier>{9dd1ff47-3753-4488-bbaf-0ac07cd71ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\Calculator">
+      <UniqueIdentifier>{67714d83-c984-4b68-90ab-3eb194675c12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\BuildQuick">
+      <UniqueIdentifier>{c37e0bb2-d860-4791-a593-1d70de9461a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\BuildFull">
+      <UniqueIdentifier>{7d7cce9b-67a4-4293-b205-505575d3a484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tests\TestVoidMessages">
+      <UniqueIdentifier>{d4a3dbe5-749d-41ab-87d7-55e3fa2a28a7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gtesthelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testutils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDcomFunctions.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDemo.cpp">
+      <Filter>Tests\Demo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPluginRun.cpp">
+      <Filter>Tests\TestPluginRun</Filter>
+    </ClCompile>
+    <ClCompile Include="TestPath.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestStringFunctions.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestProtoFunctions.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+    <ClCompile Include="TestCalculator.cpp">
+      <Filter>Tests\Calculator</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBuildQuick.cpp">
+      <Filter>Tests\BuildQuick</Filter>
+    </ClCompile>
+    <ClCompile Include="TestBuildFull.cpp">
+      <Filter>Tests\BuildFull</Filter>
+    </ClCompile>
+    <ClCompile Include="TestVoidMessages.cpp">
+      <Filter>Tests\TestVoidMessages</Filter>
+    </ClCompile>
+    <ClCompile Include="TestMd5GuidGenerator.cpp">
+      <Filter>Tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gtesthelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDcomFunctions.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDemo.h">
+      <Filter>Tests\Demo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestPluginRun.h">
+      <Filter>Tests\TestPluginRun</Filter>
+    </ClInclude>
+    <ClInclude Include="TestPath.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TestStringFunctions.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TestProtoFunctions.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+    <ClInclude Include="TestCalculator.h">
+      <Filter>Tests\Calculator</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBuildQuick.h">
+      <Filter>Tests\BuildQuick</Filter>
+    </ClInclude>
+    <ClInclude Include="TestBuildFull.h">
+      <Filter>Tests\BuildFull</Filter>
+    </ClInclude>
+    <ClInclude Include="TestVoidMessages.h">
+      <Filter>Tests\TestVoidMessages</Filter>
+    </ClInclude>
+    <ClInclude Include="TestMd5GuidGenerator.h">
+      <Filter>Tests</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="postbuild.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="protobuf-dcom-plugin-tests.x86.debug.xml">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="protobuf-dcom-plugin-tests.x86.release.xml">
+      <Filter>Generated Files</Filter>
+    </None>
+    <None Include="TestDemo.bat">
+      <Filter>Tests\Demo</Filter>
+    </None>
+    <None Include="TestPluginRun.bat">
+      <Filter>Tests\TestPluginRun</Filter>
+    </None>
+    <None Include="proto_postbuild.bat">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="TestCalculator.bat">
+      <Filter>Tests\Calculator</Filter>
+    </None>
+    <None Include="TestBuildQuick.bat">
+      <Filter>Tests\BuildQuick</Filter>
+    </None>
+    <None Include="TestBuildFull.bat">
+      <Filter>Tests\BuildFull</Filter>
+    </None>
+    <None Include="TestVoidMessages.bat">
+      <Filter>Tests\TestVoidMessages</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="TestPluginRun.proto">
+      <Filter>Tests\TestPluginRun</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TestDemo.proto">
+      <Filter>Tests\Demo</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TestCalculator.proto">
+      <Filter>Tests\Calculator</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TestBuildQuick.proto">
+      <Filter>Tests\BuildQuick</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TestBuildFull.proto">
+      <Filter>Tests\BuildFull</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TestVoidMessages.proto">
+      <Filter>Tests\TestVoidMessages</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

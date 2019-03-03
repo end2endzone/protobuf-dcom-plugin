@@ -1,0 +1,35 @@
+package dcomplugin;
+
+import "google/protobuf/descriptor.proto";
+
+message Identifier {
+  optional string guid = 1;
+  optional string helpstring = 2;
+}
+
+message CoClass {
+  optional string name = 1;
+  optional string friendlyname = 2;
+  optional Identifier id = 3;
+}
+
+message CoInterface {
+  optional Identifier id = 3;
+}
+
+message TypeLib {
+  optional string name = 1;
+  optional Identifier id = 2;
+  optional CoInterface cointerface = 3;
+  optional CoClass coclass = 4;
+}
+
+message Component {
+  optional string name = 1;
+  optional TypeLib typelib = 2;
+  optional Identifier appid = 3;
+}
+
+extend google.protobuf.FileOptions {
+  optional Component component = 50000;
+}

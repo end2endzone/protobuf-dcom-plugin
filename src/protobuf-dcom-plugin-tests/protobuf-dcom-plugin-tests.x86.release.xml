@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="2" failures="0" disabled="0" errors="0" time="6.396" name="AllTests">
+  <testsuite name="TestDComPlugin" tests="2" failures="0" disabled="0" errors="0" time="6.396">
+    <testcase name="testShowProtocVersion" status="run" time="0.171" classname="TestDComPlugin" />
+    <testcase name="testRunAbsolutePath" status="run" time="6.225" classname="TestDComPlugin" />
+  </testsuite>
+</testsuites>

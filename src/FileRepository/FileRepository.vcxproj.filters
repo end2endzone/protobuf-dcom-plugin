@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Embedded Source Files">
+      <UniqueIdentifier>{4bed6505-bc0d-4691-bc63-66fa624aac9e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ResourceFiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileClientCpp.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileClientFilters.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileClientHeader.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileClientProject.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileErrorHandlersCpp.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileErrorHandlersHeader.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileIComErrorProvider.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileIService.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileMessageSerializerCpp.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileMessageSerializerHeader.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileProtoLibFilters.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileProtoLibProject.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileRegisterServerDebug.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileRegisterServerRelease.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileRegistryCpp.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileRegistryHeader.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerCpp.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerFilters.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerHeader.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerIdl.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerImplCpp.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerImplFilters.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerImplHeader.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerImplProject.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerMain.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileServerProject.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileSmartPointers.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileSolution.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileUnregisterServerDebug.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmbeddedFileUnregisterServerRelease.cpp">
+      <Filter>Embedded Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ResourceFiles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileClientCpp.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileClientFilters.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileClientHeader.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileClientProject.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileErrorHandlersCpp.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileErrorHandlersHeader.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileIComErrorProvider.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileIService.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileMessageSerializerCpp.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileMessageSerializerHeader.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileProtoLibFilters.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileProtoLibProject.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileRegisterServerDebug.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileRegisterServerRelease.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileRegistryCpp.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileRegistryHeader.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerCpp.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerFilters.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerHeader.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerIdl.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerImplCpp.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerImplFilters.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerImplHeader.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerImplProject.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerMain.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileServerProject.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileSmartPointers.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileSolution.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileUnregisterServerDebug.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmbeddedFileUnregisterServerRelease.h">
+      <Filter>Embedded Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

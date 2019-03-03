@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protobuf-dcom-plugin", "protobuf-dcom-plugin\protobuf-dcom-plugin.vcxproj", "{A4BA2386-D3DB-4A21-904A-581020F65D77}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "protobuf-dcom-plugin-tests", "protobuf-dcom-plugin-tests\protobuf-dcom-plugin-tests.vcxproj", "{CD4774B3-3580-4757-BE61-C4013D273F3E}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libDCOM", "libDCOM\libDCOM.vcxproj", "{01FF51AC-3148-4847-86B1-68ED5A87E24F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileRepository", "FileRepository\FileRepository.vcxproj", "{CDD74612-9486-45A7-BE82-617459BDC8D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4BA2386-D3DB-4A21-904A-581020F65D77}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A4BA2386-D3DB-4A21-904A-581020F65D77}.Debug|Win32.Build.0 = Debug|Win32
+		{A4BA2386-D3DB-4A21-904A-581020F65D77}.Release|Win32.ActiveCfg = Release|Win32
+		{A4BA2386-D3DB-4A21-904A-581020F65D77}.Release|Win32.Build.0 = Release|Win32
+		{CD4774B3-3580-4757-BE61-C4013D273F3E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CD4774B3-3580-4757-BE61-C4013D273F3E}.Debug|Win32.Build.0 = Debug|Win32
+		{CD4774B3-3580-4757-BE61-C4013D273F3E}.Release|Win32.ActiveCfg = Release|Win32
+		{CD4774B3-3580-4757-BE61-C4013D273F3E}.Release|Win32.Build.0 = Release|Win32
+		{01FF51AC-3148-4847-86B1-68ED5A87E24F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{01FF51AC-3148-4847-86B1-68ED5A87E24F}.Debug|Win32.Build.0 = Debug|Win32
+		{01FF51AC-3148-4847-86B1-68ED5A87E24F}.Release|Win32.ActiveCfg = Release|Win32
+		{01FF51AC-3148-4847-86B1-68ED5A87E24F}.Release|Win32.Build.0 = Release|Win32
+		{CDD74612-9486-45A7-BE82-617459BDC8D3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CDD74612-9486-45A7-BE82-617459BDC8D3}.Debug|Win32.Build.0 = Debug|Win32
+		{CDD74612-9486-45A7-BE82-617459BDC8D3}.Release|Win32.ActiveCfg = Release|Win32
+		{CDD74612-9486-45A7-BE82-617459BDC8D3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

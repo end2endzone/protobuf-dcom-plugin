@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="EmbeddedFileClientCpp.cpp" />
+    <ClCompile Include="EmbeddedFileClientFilters.cpp" />
+    <ClCompile Include="EmbeddedFileClientHeader.cpp" />
+    <ClCompile Include="EmbeddedFileClientProject.cpp" />
+    <ClCompile Include="EmbeddedFileErrorHandlersCpp.cpp" />
+    <ClCompile Include="EmbeddedFileErrorHandlersHeader.cpp" />
+    <ClCompile Include="EmbeddedFileIComErrorProvider.cpp" />
+    <ClCompile Include="EmbeddedFileIService.cpp" />
+    <ClCompile Include="EmbeddedFileMessageSerializerCpp.cpp" />
+    <ClCompile Include="EmbeddedFileMessageSerializerHeader.cpp" />
+    <ClCompile Include="EmbeddedFileProtoLibFilters.cpp" />
+    <ClCompile Include="EmbeddedFileProtoLibProject.cpp" />
+    <ClCompile Include="EmbeddedFileRegisterServerDebug.cpp" />
+    <ClCompile Include="EmbeddedFileRegisterServerRelease.cpp" />
+    <ClCompile Include="EmbeddedFileRegistryCpp.cpp" />
+    <ClCompile Include="EmbeddedFileRegistryHeader.cpp" />
+    <ClCompile Include="EmbeddedFileServerCpp.cpp" />
+    <ClCompile Include="EmbeddedFileServerFilters.cpp" />
+    <ClCompile Include="EmbeddedFileServerHeader.cpp" />
+    <ClCompile Include="EmbeddedFileServerIdl.cpp" />
+    <ClCompile Include="EmbeddedFileServerImplCpp.cpp" />
+    <ClCompile Include="EmbeddedFileServerImplFilters.cpp" />
+    <ClCompile Include="EmbeddedFileServerImplHeader.cpp" />
+    <ClCompile Include="EmbeddedFileServerImplProject.cpp" />
+    <ClCompile Include="EmbeddedFileServerMain.cpp" />
+    <ClCompile Include="EmbeddedFileServerProject.cpp" />
+    <ClCompile Include="EmbeddedFileSmartPointers.cpp" />
+    <ClCompile Include="EmbeddedFileSolution.cpp" />
+    <ClCompile Include="EmbeddedFileUnregisterServerDebug.cpp" />
+    <ClCompile Include="EmbeddedFileUnregisterServerRelease.cpp" />
+    <ClCompile Include="ResourceFiles.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EmbeddedFileClientCpp.h" />
+    <ClInclude Include="EmbeddedFileClientFilters.h" />
+    <ClInclude Include="EmbeddedFileClientHeader.h" />
+    <ClInclude Include="EmbeddedFileClientProject.h" />
+    <ClInclude Include="EmbeddedFileErrorHandlersCpp.h" />
+    <ClInclude Include="EmbeddedFileErrorHandlersHeader.h" />
+    <ClInclude Include="EmbeddedFileIComErrorProvider.h" />
+    <ClInclude Include="EmbeddedFileIService.h" />
+    <ClInclude Include="EmbeddedFileMessageSerializerCpp.h" />
+    <ClInclude Include="EmbeddedFileMessageSerializerHeader.h" />
+    <ClInclude Include="EmbeddedFileProtoLibFilters.h" />
+    <ClInclude Include="EmbeddedFileProtoLibProject.h" />
+    <ClInclude Include="EmbeddedFileRegisterServerDebug.h" />
+    <ClInclude Include="EmbeddedFileRegisterServerRelease.h" />
+    <ClInclude Include="EmbeddedFileRegistryCpp.h" />
+    <ClInclude Include="EmbeddedFileRegistryHeader.h" />
+    <ClInclude Include="EmbeddedFileServerCpp.h" />
+    <ClInclude Include="EmbeddedFileServerFilters.h" />
+    <ClInclude Include="EmbeddedFileServerHeader.h" />
+    <ClInclude Include="EmbeddedFileServerIdl.h" />
+    <ClInclude Include="EmbeddedFileServerImplCpp.h" />
+    <ClInclude Include="EmbeddedFileServerImplFilters.h" />
+    <ClInclude Include="EmbeddedFileServerImplHeader.h" />
+    <ClInclude Include="EmbeddedFileServerImplProject.h" />
+    <ClInclude Include="EmbeddedFileServerMain.h" />
+    <ClInclude Include="EmbeddedFileServerProject.h" />
+    <ClInclude Include="EmbeddedFileSmartPointers.h" />
+    <ClInclude Include="EmbeddedFileSolution.h" />
+    <ClInclude Include="EmbeddedFileUnregisterServerDebug.h" />
+    <ClInclude Include="EmbeddedFileUnregisterServerRelease.h" />
+    <ClInclude Include="ResourceFiles.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{CDD74612-9486-45A7-BE82-617459BDC8D3}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>FileRepository</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
