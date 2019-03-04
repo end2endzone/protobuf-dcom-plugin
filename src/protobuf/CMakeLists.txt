@@ -43,7 +43,14 @@ set(PROTOBUF_INSTALL_CMAKE_DIR    ${PROTOBUF_INSTALL_LIB_DIR}) # CMake files (*.
 # Prevents annoying warnings on MSVC
 if (WIN32)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+  add_definitions(/wd4244 /wd4267 /wd4018 /wd4355 /wd4800 /wd4251 /wd4996 /wd4146 /wd4305)
 endif()
+
+# Define include directories for source code.
+# The specified values will not be exported.
+include_directories(${PROTOBUF_ROOT}/src
+                    ${PROTOBUF_ROOT}/vsprojects
+)
 
 ##############################################################################################################################################
 # Subprojects
@@ -66,26 +73,7 @@ configure_file(${CMAKE_SOURCE_DIR}/cmake/protobuf-config-version.cmake.in ${CMAK
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cmake/protobuf-config-version.cmake DESTINATION ${PROTOBUF_INSTALL_CMAKE_DIR})
 
 # Target config file
-configure_file(${CMAKE_SOURCE_DIR}/cmake/protobufdcomplugin-config.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/cmake/protobufdcomplugin-config.cmake @ONLY)
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cmake/protobufdcomplugin-config.cmake DESTINATION ${PROTOBUF_INSTALL_CMAKE_DIR})
+configure_file(${CMAKE_SOURCE_DIR}/cmake/protobuf-config.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/cmake/protobuf-config.cmake @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/cmake/protobuf-config.cmake DESTINATION ${PROTOBUF_INSTALL_CMAKE_DIR})
 
 install(EXPORT protobuf-targets DESTINATION ${PROTOBUF_INSTALL_CMAKE_DIR})
-
-##############################################################################################################################################
-# Packaging
-##############################################################################################################################################
-
-set(CPACK_PACKAGE_NAME ${PROJECT_NAME})
-set(CPACK_PACKAGE_VERSION ${PROTOBUF_VERSION})
-set(CPACK_PACKAGE_VERSION_MAJOR "${PROTOBUF_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${PROTOBUF_VERSION_MINOR}")
-set(CPACK_PACKAGE_VERSION_PATCH "${PROTOBUF_VERSION_PATCH}")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Protocol Buffers - Google's data interchange format.")
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
-set(CPACK_RESOURCE_FILE_README "${CMAKE_SOURCE_DIR}/README.md")
-
-# we don't want to split our program up into several things
-set(CPACK_MONOLITHIC_INSTALL 1)
-
-# This must be last
-include(CPack)

@@ -103,8 +103,6 @@ set(INSTALL_FILES_LIST
   ${PROTOBUF_ROOT}/src/google/protobuf/wire_format.h
   ${PROTOBUF_ROOT}/src/google/protobuf/wire_format_lite.h
   ${PROTOBUF_ROOT}/src/google/protobuf/wire_format_lite_inl.h
-  
-  DESTINATION ${PROTOBUF_INSTALL_CMAKE_DIR}
 )
 
 foreach(tmpfile ${INSTALL_FILES_LIST})
