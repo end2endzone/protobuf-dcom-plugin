@@ -78,7 +78,6 @@ set(INSTALL_FILES_LIST
   ${PROTOBUF_ROOT}/src/google/protobuf/io/zero_copy_stream.h
   ${PROTOBUF_ROOT}/src/google/protobuf/io/zero_copy_stream_impl.h
   ${PROTOBUF_ROOT}/src/google/protobuf/io/zero_copy_stream_impl_lite.h
-  ${PROTOBUF_ROOT}/src/google/protobuf/io/strtod.h
   ${PROTOBUF_ROOT}/src/google/protobuf/message.h
   ${PROTOBUF_ROOT}/src/google/protobuf/message_lite.h
   ${PROTOBUF_ROOT}/src/google/protobuf/reflection_ops.h

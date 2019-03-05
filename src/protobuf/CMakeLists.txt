@@ -52,6 +52,11 @@ include_directories(${PROTOBUF_ROOT}/src
                     ${PROTOBUF_ROOT}/vsprojects
 )
 
+# Fix invalid character escape \T or \P characters on Windows. On Windows, path can contains \P (like C:\Program Files\) which is invalid in CMake.
+if (WIN32)
+  string(REPLACE "\\" "/" PROTOBUF_ROOT ${PROTOBUF_ROOT})
+endif()
+
 ##############################################################################################################################################
 # Subprojects
 ##############################################################################################################################################
