@@ -40,8 +40,6 @@ set_target_properties(libDCOM PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
 target_include_directories(libDCOM
   PUBLIC
     $<INSTALL_INTERFACE:${PROTOBUFDCOMPLUGIN_INSTALL_INCLUDE_DIR}>  # for clients using the installed library.
-  PRIVATE
-    ${CMAKE_SOURCE_DIR}/third_parties/
 )
 add_dependencies(libDCOM FileRepository)
 target_link_libraries(libDCOM PRIVATE FileRepository protobuf )

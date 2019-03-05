@@ -111,9 +111,7 @@ include_directories(${CMAKE_BINARY_DIR}/include     # for ${PROTOBUFDCOMPLUGIN_V
 ##############################################################################################################################################
 find_package(GTest REQUIRED) #rapidassist requires GTest
 find_package(rapidassist 0.5.0 REQUIRED)
-message(STATUS "A:")
 find_package(protobuf 2.5.0 REQUIRED)
-message(STATUS "B:")
 find_package(bin2cpp 2.2.0 REQUIRED)
 
 ##############################################################################################################################################
