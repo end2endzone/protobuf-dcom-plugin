@@ -40,6 +40,13 @@ if(WIN32 AND BUILD_SHARED_LIBS AND MSVC)
 endif()
 
 add_library( libprotoc ${SOURCES} )
+
+# Define include directories for exported code.
+target_include_directories(libprotoc
+  PUBLIC
+    $<INSTALL_INTERFACE:${PROTOBUF_INSTALL_INCLUDE_DIR}>  # for clients using the installed library.
+)
+
 target_link_libraries( libprotoc libprotobuf )
 
 install(TARGETS libprotoc

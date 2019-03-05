@@ -43,6 +43,12 @@ endif()
 
 add_library( libprotobuf ${SOURCES} )
 
+# Define include directories for exported code.
+target_include_directories(libprotobuf
+  PUBLIC
+    $<INSTALL_INTERFACE:${PROTOBUF_INSTALL_INCLUDE_DIR}>  # for clients using the installed library.
+)
+
 install(TARGETS libprotobuf
         EXPORT protobuf-targets
         ARCHIVE DESTINATION ${PROTOBUF_INSTALL_LIB_DIR}
