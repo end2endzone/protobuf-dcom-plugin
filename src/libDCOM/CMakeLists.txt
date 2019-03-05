@@ -36,13 +36,19 @@ add_library(libDCOM
 # Force CMAKE_DEBUG_POSTFIX for executables
 set_target_properties(libDCOM PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
 
+# Manually get the location of include directories for libprotobuf
+get_target_property(PROTOBUF_INCLUDE_DIRS libprotobuf INTERFACE_INCLUDE_DIRECTORIES)
+
 # Define include directories for exported code.
 target_include_directories(libDCOM
   PUBLIC
     $<INSTALL_INTERFACE:${PROTOBUFDCOMPLUGIN_INSTALL_INCLUDE_DIR}>  # for clients using the installed library.
+  PRIVATE
+    ${PROTOBUF_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/src/libDCOM # for stringfunc.h
 )
 add_dependencies(libDCOM FileRepository)
-target_link_libraries(libDCOM PRIVATE FileRepository protobuf )
+target_link_libraries(libDCOM PRIVATE FileRepository libprotobuf )
 
 install(TARGETS libDCOM
         EXPORT protobufdcomplugin-targets

@@ -1,4 +1,4 @@
-add_executable(protobufdcomplugin
+add_executable(protobuf-dcom-plugin
   ${PROTOBUFDCOMPLUGIN_VERSION_HEADER}
   ${PROTOBUFDCOMPLUGIN_CONFIG_HEADER}
   MacroManager.cpp
@@ -11,21 +11,26 @@ add_executable(protobufdcomplugin
 )
 
 # Force CMAKE_DEBUG_POSTFIX for executables
-set_target_properties(protobufdcomplugin PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
+set_target_properties(protobuf-dcom-plugin PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
+
+# Manually get the location of include directories for libprotobuf
+get_target_property(PROTOBUF_INCLUDE_DIRS libprotobuf INTERFACE_INCLUDE_DIRECTORIES)
 
 # Define include directories for exported code.
-target_include_directories(protobufdcomplugin
+target_include_directories(protobuf-dcom-plugin
   PUBLIC
     $<INSTALL_INTERFACE:${PROTOBUFDCOMPLUGIN_INSTALL_INCLUDE_DIR}>  # for clients using the installed library.
+  PRIVATE
+    ${PROTOBUF_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/src/libDCOM # for stringfunc.h
+    ${CMAKE_SOURCE_DIR}/src/FileRepository # for ResourceFiles.h
 )
 
-add_dependencies(protobufdcomplugin libDCOM)
-add_dependencies(protobufdcomplugin FileRepository)
+add_dependencies(protobuf-dcom-plugin libDCOM FileRepository)
 
-target_link_libraries(protobufdcomplugin PUBLIC libDCOM)
-target_link_libraries(protobufdcomplugin PUBLIC FileRepository)
+target_link_libraries(protobuf-dcom-plugin PUBLIC libDCOM FileRepository libprotobuf libprotoc)
 
-install(TARGETS protobufdcomplugin
+install(TARGETS protobuf-dcom-plugin
         EXPORT protobufdcomplugin-targets
         ARCHIVE DESTINATION ${PROTOBUFDCOMPLUGIN_INSTALL_LIB_DIR}
         LIBRARY DESTINATION ${PROTOBUFDCOMPLUGIN_INSTALL_LIB_DIR}

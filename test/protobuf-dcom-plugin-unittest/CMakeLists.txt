@@ -1,4 +1,4 @@
-add_executable(protobufdcomplugin_unittest
+add_executable(protobuf-dcom-plugin_unittest
   ${PROTOBUFDCOMPLUGIN_EXPORT_HEADER}
   ${PROTOBUFDCOMPLUGIN_VERSION_HEADER}
   ${PROTOBUFDCOMPLUGIN_CONFIG_HEADER}
@@ -52,16 +52,21 @@ if(NOT WIN32)
 endif()
 
 # Force CMAKE_DEBUG_POSTFIX for executables
-set_target_properties(protobufdcomplugin_unittest PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
+set_target_properties(protobuf-dcom-plugin_unittest PROPERTIES DEBUG_POSTFIX ${CMAKE_DEBUG_POSTFIX})
 
-target_include_directories(protobufdcomplugin_unittest 
+# Manually get the location of include directories for libprotobuf
+get_target_property(PROTOBUF_INCLUDE_DIRS libprotobuf INTERFACE_INCLUDE_DIRECTORIES)
+
+target_include_directories(protobuf-dcom-plugin_unittest 
   PRIVATE 
     ${GTEST_INCLUDE_DIR}
+    ${PROTOBUF_INCLUDE_DIRS}
+    ${CMAKE_SOURCE_DIR}/src/libDCOM # for stringfunc.h
 )
-add_dependencies(protobufdcomplugin_unittest protobufdcomplugin)
-target_link_libraries(protobufdcomplugin_unittest PRIVATE ${PTHREAD_LIBRARIES} ${GTEST_LIBRARIES} )
+add_dependencies(protobuf-dcom-plugin_unittest protobuf-dcom-plugin)
+target_link_libraries(protobuf-dcom-plugin_unittest PRIVATE libDCOM ${PTHREAD_LIBRARIES} ${GTEST_LIBRARIES} )
 
-install(TARGETS protobufdcomplugin_unittest
+install(TARGETS protobuf-dcom-plugin_unittest
         EXPORT protobufdcomplugin-targets
         ARCHIVE DESTINATION ${PROTOBUFDCOMPLUGIN_INSTALL_LIB_DIR}
         LIBRARY DESTINATION ${PROTOBUFDCOMPLUGIN_INSTALL_LIB_DIR}
