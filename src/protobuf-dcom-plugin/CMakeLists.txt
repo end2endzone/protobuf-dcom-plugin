@@ -23,6 +23,7 @@ target_include_directories(protobuf-dcom-plugin
   PRIVATE
     ${PROTOBUF_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/src/libDCOM # for stringfunc.h
+    ${CMAKE_CURRENT_BINARY_DIR}/../libDCOM   # for dcomplugin.pb.h
     ${CMAKE_SOURCE_DIR}/src/FileRepository # for ResourceFiles.h
 )
 
