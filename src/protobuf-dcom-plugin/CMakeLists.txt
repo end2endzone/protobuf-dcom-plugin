@@ -6,8 +6,6 @@ add_executable(protobuf-dcom-plugin
   main.cpp
   PluginCodeGenerator.cpp
   PluginCodeGenerator.h
-  postbuild.bat
-  targetver.h
 )
 
 # Force CMAKE_DEBUG_POSTFIX for executables

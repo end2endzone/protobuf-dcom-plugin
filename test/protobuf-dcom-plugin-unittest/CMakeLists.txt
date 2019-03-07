@@ -16,27 +16,20 @@ add_executable(protobuf-dcom-plugin_unittest
   gtesthelper.cpp
   gtesthelper.h
   main.cpp
-  postbuild.bat
-  proto_postbuild.bat
   ${PROTOBUF_LOCATOR_SOURCE}
   protobuf_locator.cpp.in
   protobuf_locator.h
-  targetver.h
-  TestBuildFull.bat
   TestBuildFull.cpp
   TestBuildFull.h
   TestBuildFull.proto
-  TestBuildQuick.bat
   TestBuildQuick.cpp
   TestBuildQuick.h
   TestBuildQuick.proto
-  TestCalculator.bat
   TestCalculator.cpp
   TestCalculator.h
   TestCalculator.proto
   TestDcomFunctions.cpp
   TestDcomFunctions.h
-  TestDemo.bat
   TestDemo.cpp
   TestDemo.h
   TestDemo.proto
@@ -44,7 +37,6 @@ add_executable(protobuf-dcom-plugin_unittest
   TestMd5GuidGenerator.h
   TestPath.cpp
   TestPath.h
-  TestPluginRun.bat
   TestPluginRun.cpp
   TestPluginRun.h
   TestPluginRun.proto
@@ -54,7 +46,6 @@ add_executable(protobuf-dcom-plugin_unittest
   TestStringFunctions.h
   testutils.cpp
   testutils.h
-  TestVoidMessages.bat
   TestVoidMessages.cpp
   TestVoidMessages.h
 )
