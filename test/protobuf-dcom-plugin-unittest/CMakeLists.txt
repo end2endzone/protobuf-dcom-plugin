@@ -66,6 +66,48 @@ target_include_directories(protobuf-dcom-plugin_unittest
 add_dependencies(protobuf-dcom-plugin_unittest protobuf-dcom-plugin)
 target_link_libraries(protobuf-dcom-plugin_unittest PRIVATE libDCOM ${PTHREAD_LIBRARIES} ${GTEST_LIBRARIES} )
 
+# Define the proto files to process before building `protobuf-dcom-plugin_unittest`
+set(OUTPUT_PROTO_FILES
+  ${EXECUTABLE_OUTPUT_PATH}/TestBuildFull.proto
+  ${EXECUTABLE_OUTPUT_PATH}/TestVoidMessages.proto
+  ${EXECUTABLE_OUTPUT_PATH}/TestPluginRun.proto
+  ${EXECUTABLE_OUTPUT_PATH}/TestDemo.proto
+  ${EXECUTABLE_OUTPUT_PATH}/TestCalculator.proto
+  ${EXECUTABLE_OUTPUT_PATH}/TestBuildQuick.proto
+)
+if (WIN32)
+  # On Windows, we need to duplicate the output files for `Debug` and `Release` directories
+  set(OUTPUT_PROTO_FILES_DEBUG)
+  set(OUTPUT_PROTO_FILES_RELEASE)
+  foreach(tmpfile ${OUTPUT_PROTO_FILES})
+    string(REPLACE "${EXECUTABLE_OUTPUT_PATH}" "${EXECUTABLE_OUTPUT_PATH}/Debug"   tmp_debug   ${tmpfile})
+    string(REPLACE "${EXECUTABLE_OUTPUT_PATH}" "${EXECUTABLE_OUTPUT_PATH}/Release" tmp_release ${tmpfile})
+    set(OUTPUT_PROTO_FILES_DEBUG   ${OUTPUT_PROTO_FILES_DEBUG}   ${tmp_debug})
+    set(OUTPUT_PROTO_FILES_RELEASE ${OUTPUT_PROTO_FILES_RELEASE} ${tmp_release})
+  endforeach()
+  set(OUTPUT_PROTO_FILES ${OUTPUT_PROTO_FILES_DEBUG} ${OUTPUT_PROTO_FILES_RELEASE})
+endif()
+foreach(output_file ${OUTPUT_PROTO_FILES})
+  get_filename_component(filename ${output_file} NAME)
+
+  #Compute the input file's path
+  set(input_file "${CMAKE_CURRENT_SOURCE_DIR}/${filename}")
+
+  message("Processing proto file: " ${filename})
+
+  # Step 1: copy the file to the output directory
+  add_custom_command(
+    OUTPUT ${output_file}
+    COMMAND ${CMAKE_COMMAND} -E copy
+            ${input_file}
+            ${output_file}
+  )
+endforeach()
+add_custom_target(unittest-prebuild DEPENDS ${OUTPUT_PROTO_FILES})
+add_dependencies(protobuf-dcom-plugin_unittest unittest-prebuild)
+
+
+
 install(TARGETS protobuf-dcom-plugin_unittest
         EXPORT protobufdcomplugin-targets
         ARCHIVE DESTINATION ${PROTOBUFDCOMPLUGIN_INSTALL_LIB_DIR}
