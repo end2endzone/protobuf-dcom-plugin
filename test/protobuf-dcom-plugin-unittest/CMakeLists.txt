@@ -1,3 +1,13 @@
+# Manually get the location of include directories for libprotobuf
+get_target_property(PROTOBUF_INCLUDE_DIRS libprotobuf INTERFACE_INCLUDE_DIRECTORIES)
+
+# Manually get the location of protoc
+get_property(PROTOC_LOCATION TARGET protoc PROPERTY LOCATION)
+
+# Configure protobuf locator
+set(PROTOBUF_LOCATOR_SOURCE ${CMAKE_CURRENT_BINARY_DIR}/protobuf_locator.cpp)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/protobuf_locator.cpp.in ${PROTOBUF_LOCATOR_SOURCE} @ONLY)
+
 add_executable(protobuf-dcom-plugin_unittest
   ${PROTOBUFDCOMPLUGIN_EXPORT_HEADER}
   ${PROTOBUFDCOMPLUGIN_VERSION_HEADER}
@@ -8,6 +18,9 @@ add_executable(protobuf-dcom-plugin_unittest
   main.cpp
   postbuild.bat
   proto_postbuild.bat
+  ${PROTOBUF_LOCATOR_SOURCE}
+  protobuf_locator.cpp.in
+  protobuf_locator.h
   targetver.h
   TestBuildFull.bat
   TestBuildFull.cpp
@@ -89,11 +102,13 @@ if (WIN32)
 endif()
 foreach(output_file ${OUTPUT_PROTO_FILES})
   get_filename_component(filename ${output_file} NAME)
+  #get_filename_component(filename_we ${output_file} NAME_WE)
+  #get_filename_component(output_dir ${output_file} DIRECTORY)
 
   #Compute the input file's path
   set(input_file "${CMAKE_CURRENT_SOURCE_DIR}/${filename}")
 
-  message("Processing proto file: " ${filename})
+  # message("Processing proto file: " ${filename})
 
   # Step 1: copy the file to the output directory
   add_custom_command(
@@ -107,6 +122,30 @@ add_custom_target(unittest-prebuild DEPENDS ${OUTPUT_PROTO_FILES})
 add_dependencies(protobuf-dcom-plugin_unittest unittest-prebuild)
 
 
+# Force Visual Studio to execute code in $(OutDir) when debugging from the IDE.
+if (WIN32)
+  file( WRITE "${CMAKE_CURRENT_BINARY_DIR}/protobuf-dcom-plugin_unittest.vcxproj.user" 
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>     \
+      <Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">
+      <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='Debug|Win32'\">
+          <LocalDebuggerWorkingDirectory>$(OutDir)</LocalDebuggerWorkingDirectory>
+          <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+      </PropertyGroup>
+      <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='Release|Win32'\">
+          <LocalDebuggerWorkingDirectory>$(OutDir)</LocalDebuggerWorkingDirectory>
+          <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+      </PropertyGroup>
+      <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='Debug|x64'\">
+          <LocalDebuggerWorkingDirectory>$(OutDir)</LocalDebuggerWorkingDirectory>
+          <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+      </PropertyGroup>
+      <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='Release|x64'\">
+          <LocalDebuggerWorkingDirectory>$(OutDir)</LocalDebuggerWorkingDirectory>
+          <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+      </PropertyGroup>
+      </Project>"
+  )
+endif()
 
 install(TARGETS protobuf-dcom-plugin_unittest
         EXPORT protobufdcomplugin-targets
