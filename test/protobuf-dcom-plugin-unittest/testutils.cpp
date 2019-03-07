@@ -1,5 +1,6 @@
 #include "testutils.h"
 #include "gtesthelper.h"
+#include "protobuf_locator.h"
 #include <algorithm>
 
 #ifndef WIN32_LEAN_AND_MEAN
@@ -20,17 +21,20 @@ std::string getPluginName()
 
 std::string getPluginFileName()
 {
-  std::string filename = PROTOBUF_DCOM_PLUGIN_NAME;
-  filename.append(".exe");
+  std::string path = getPluginFilePath();
+  std::string filename = getFilenameFromPath(path);
   return filename;
 }
 
 std::string getPluginFilePath()
 {
-  std::string path;
-  path.append(getExecutableDir());
-  path.append("\\");
-  path.append(getPluginFileName());
+  std::string path = getExecutableFilePath();
+
+  //replace test executable name by plugin executable name
+  static const std::string plugin_name = PROTOBUF_DCOM_PLUGIN_NAME;
+  static const std::string   test_name = "protobuf-dcom-plugin_unittest";
+  replaceString(path, test_name, plugin_name);
+
   return path;
 }
 
@@ -61,7 +65,8 @@ std::string getTestProtoFilePath()
 std::string getTestProtoPath()
 {
   std::string outdir;
-  outdir.append("%PROTOBUF_SRC_DIR%;");
+  outdir.append(getProtobufIncludeDirectory());
+  outdir.append(";");
   outdir.append(getExecutableDir());
   outdir.append(";");
   outdir.append(getTestOutDir());
@@ -136,9 +141,57 @@ std::string getExecutableDir()
 {
   std::string exec = getExecutableFilePath();
 
-  //remove "protobuf-dcom-plugin-tests.exe" from exec
-  std::string dir = exec;
-  eraseToken(dir, "\\protobuf-dcom-plugin-tests.exe");
+  std::string dir = getDirectoryFromPath(exec);
+  return dir;
+}
+
+std::string getFilenameFromPath(const std::string & iPath)
+{
+  //search for the last path_separator location
+#ifdef _WIN32
+  const char path_separator = '\\';
+#else
+  const char path_separator = '/';
+#endif
+
+  std::string filename;
+
+  size_t pos = iPath.find_last_of(path_separator);
+  if (pos != std::string::npos)
+  {
+    //remove directory from path
+    filename = iPath.substr(pos+1);
+  }
+  else
+  {
+    filename = iPath;
+  }
+
+  return filename;
+}
+
+std::string getDirectoryFromPath(const std::string & iPath)
+{
+  //search for the last path_separator location
+#ifdef _WIN32
+  const char path_separator = '\\';
+#else
+  const char path_separator = '/';
+#endif
+
+  std::string dir;
+
+  size_t pos = iPath.find_last_of(path_separator);
+  if (pos != std::string::npos)
+  {
+    //remove directory from path
+    dir = iPath.substr(0, pos);
+  }
+  else
+  {
+    dir = iPath;
+  }
+
   return dir;
 }
 

@@ -1,27 +1,18 @@
 #include "TestPluginRun.h"
 #include "testutils.h"
+#include "protobuf_locator.h"
 
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN // Exclude rarely-used stuff from Windows headers
 #endif
 #include <Windows.h>
 
-std::string path_backup;
-
 void TestPluginRun::SetUp()
 {
-  //backup %PATH%
-  path_backup = getEnvironementVariable("PATH");
-
-  //PROTOBUF_BINARY_DIR
-  std::string PROTOBUF_BINARY_DIR = getEnvironementVariable("PROTOBUF_BINARY_DIR");
-  addApplicationPath(PROTOBUF_BINARY_DIR.c_str());
 }
 
 void TestPluginRun::TearDown()
 {
-  //restore %PATH%
-  setApplicationPath(path_backup.c_str());
 }
 
 TEST_F(TestPluginRun, testShowProtocVersion)

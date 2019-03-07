@@ -48,8 +48,16 @@
 #include <gtest/gtest.h>
 #include "gtesthelper.h"
 
+#include "testutils.h"
+#include "protobuf_locator.h"
+
 int main(int argc, char* argv[])
 {
+  //add protoc.exe to path
+  std::string protoc_directory = getProtoCompilerDirectory();
+  addApplicationPath(protoc_directory.c_str());
+
+
   //init google test
   gTestHelper & hlp = gTestHelper::getInstance();
   if (hlp.isProcessorX86())
