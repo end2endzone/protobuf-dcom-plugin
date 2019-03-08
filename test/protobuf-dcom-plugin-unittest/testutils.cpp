@@ -195,6 +195,19 @@ std::string getDirectoryFromPath(const std::string & iPath)
   return dir;
 }
 
+std::string getFileExtensionFromPath(const std::string & iPath)
+{
+  std::string ext;
+
+  size_t pos = iPath.find_last_of('.');
+  if (pos != std::string::npos)
+  {
+    ext = iPath.substr(pos);
+  }
+
+  return ext;
+}
+
 bool hasMacroInFile(const char * iFilePath, std::string & oError)
 {
   gTestHelper & hlp = gTestHelper::getInstance();

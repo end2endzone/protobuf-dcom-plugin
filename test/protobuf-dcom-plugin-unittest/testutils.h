@@ -21,8 +21,10 @@ void eraseToken(std::string & iString, const std::string & iToken);
 
 std::string getExecutableFilePath();
 std::string getExecutableDir();
+
 std::string getFilenameFromPath(const std::string & iPath);
 std::string getDirectoryFromPath(const std::string & iPath);
+std::string getFileExtensionFromPath(const std::string & iPath);
 
 bool hasMacroInFile(const char * iFilePath, std::string & oError);
 bool hasMacroInFiles(const std::vector<std::string> & iFilesPath, std::string & oError);

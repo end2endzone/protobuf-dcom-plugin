@@ -25,6 +25,18 @@ TEST_F(TestPluginRun, testShowProtocVersion)
 
 TEST_F(TestPluginRun, testRunPluginAbsolutePath)
 {
+  //create output dir
+  std::string outdir = getTestOutDir();
+  mkdir(outdir.c_str());
+
+  //delete all files in output dir
+  std::vector<std::string> outdir_files = get_all_files_names_within_folder(outdir);
+  for(size_t i=0; i<outdir_files.size(); i++)
+  {
+    const std::string & filePath = outdir_files[i];
+    remove(filePath.c_str());
+  }
+
   //protoc --plugin=protoc-gen-NAME=path/to/mybinary.exe --NAME_out=OUT_DIR
   //protoc --plugin=protoc-gen-foobar=[...]\src\Debug\protobuf-dcom-plugin.exe --foobar_out=[...]\src\Debug\output --proto_path=[...]\src\Debug\proto_files [...]\src\Debug\proto_files\addressbookservice.proto
 
@@ -56,6 +68,18 @@ TEST_F(TestPluginRun, testRunPluginAbsolutePath)
 
 TEST_F(TestPluginRun, testRunPluginAutoDetect)
 {
+  //create output dir
+  std::string outdir = getTestOutDir();
+  mkdir(outdir.c_str());
+
+  //delete all files in output dir
+  std::vector<std::string> outdir_files = get_all_files_names_within_folder(outdir);
+  for(size_t i=0; i<outdir_files.size(); i++)
+  {
+    const std::string & filePath = outdir_files[i];
+    remove(filePath.c_str());
+  }
+
   //protoc --NAME_out=%TEMP%
   //protoc.exe looks for protoc-gen-NAME.exe in %PATH%
 
@@ -77,10 +101,14 @@ TEST_F(TestPluginRun, testRunPluginAutoDetect)
   //run command line
   ASSERT_EXEC(cmdline.c_str());
 
+  std::string plugin_filename = getPluginFileName();
+  std::string plugin_extension = getFileExtensionFromPath(plugin_filename);
+  std::string plugin_name = plugin_filename; replaceString(plugin_name, plugin_extension, "");
+
   //build
   cmdline = "";
   cmdline.append("protoc.exe --");
-  cmdline.append(getPluginName());
+  cmdline.append(plugin_name);
   cmdline.append("_out=");
   cmdline.append(getTestOutDir());
   cmdline.append(" --proto_path=");
