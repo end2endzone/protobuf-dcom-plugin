@@ -18,6 +18,12 @@
 
 PluginCodeGenerator::PluginCodeGenerator()
 {
+#if 0
+  static const char * caption = "Debug breakpoint";
+  std::string message = "protobuf-dcom-plugin constructor.";
+  MessageBox(NULL,message.c_str(), caption, 0);
+  int a = 0;
+#endif
 }
 
 PluginCodeGenerator::~PluginCodeGenerator()
@@ -99,7 +105,7 @@ bool PluginCodeGenerator::Generate(const FileDescriptor * file, const std::strin
   FileList files = getResourceFiles();
   for(size_t i=0; i<files.size(); i++)
   {
-    bin2cpp::File * fileResource = files[i];
+    const bin2cpp::File * fileResource = files[i];
     
     std::string filename = fileResource->getFilename();
     macromgr.replaceMacros(filename);
@@ -107,14 +113,7 @@ bool PluginCodeGenerator::Generate(const FileDescriptor * file, const std::strin
     size_t fileSize = fileResource->getSize();
 
     //copy content of the file into a private buffer that supports macro replacement
-    std::string content;
-    char * fileBufferTmp = fileResource->newBuffer();
-    if (fileBufferTmp)
-    {
-      content = toString(fileBufferTmp, fileSize);
-      delete[] fileBufferTmp;
-      fileBufferTmp = NULL;
-    }
+    std::string content = fileResource->getBuffer();
 
     if (filename == "IService.h")
     {
