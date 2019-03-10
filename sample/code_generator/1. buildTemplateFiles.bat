@@ -5,6 +5,7 @@ echo done
 echo.
 
 echo Copying source files to templates...
+copy /v .\sourceFiles\CMakeLists.txt                               .\templateFiles\CMakeLists.txt                                     
 copy /v .\sourceFiles\demo.sln                                     .\templateFiles\DCOMPLUGIN_COMPONENT_NAME.sln                      
 copy /v .\sourceFiles\DemoClient.cpp                               .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.cpp                
 copy /v .\sourceFiles\DemoClient.h                                 .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.h                  
@@ -44,6 +45,7 @@ echo done
 echo.
 
 echo Processing search and replace values...
+call :PROCESS_REPLACEMENT .\templateFiles\CMakeLists.txt                                     
 call :PROCESS_REPLACEMENT .\templateFiles\DCOMPLUGIN_COMPONENT_NAME.sln                      
 call :PROCESS_REPLACEMENT .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.cpp                
 call :PROCESS_REPLACEMENT .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEClient.h                  

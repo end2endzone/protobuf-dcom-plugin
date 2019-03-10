@@ -1,6 +1,18 @@
-#include <objbase.h> // 
-#include "DCOMPLUGIN_COMPONENT_NAMEServer_h.h"
-#include "DCOMPLUGIN_COMPONENT_NAMEServer_i.c"
+#include <objbase.h>
+
+#ifdef CMAKE_INTDIR
+  #ifdef NDEBUG
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Release/DCOMPLUGIN_COMPONENT_NAMEServer.h"   // interface declaration
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Release/DCOMPLUGIN_COMPONENT_NAMEServer_i.c" // IID, CLSID
+  #else
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Debug/DCOMPLUGIN_COMPONENT_NAMEServer.h"   // interface declaration
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Debug/DCOMPLUGIN_COMPONENT_NAMEServer_i.c" // IID, CLSID
+  #endif
+#else
+  #include "DCOMPLUGIN_COMPONENT_NAMEServer_h.h" // interface declaration
+  #include "DCOMPLUGIN_COMPONENT_NAMEServer_i.c" // IID, CLSID
+#endif
+
 #include <comdef.h>
 #include "Registry.h"
 #include "DCOMPLUGIN_COMPONENT_NAMEServer.h"

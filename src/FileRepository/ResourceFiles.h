@@ -5,6 +5,7 @@
 #include "EmbeddedFileClientFilters.h"
 #include "EmbeddedFileClientHeader.h"
 #include "EmbeddedFileClientProject.h"
+#include "EmbeddedFileCMakeLists.h"
 #include "EmbeddedFileErrorHandlersCpp.h"
 #include "EmbeddedFileErrorHandlersHeader.h"
 #include "EmbeddedFileIComErrorProvider.h"

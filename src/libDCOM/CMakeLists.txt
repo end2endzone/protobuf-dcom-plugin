@@ -23,6 +23,13 @@ add_custom_command(
   COMMAND echo done
 )
 
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/path2.cpp")
+  set(FILE_TEMPLATE path2.cpp)
+else()
+  set(FILE_TEMPLATE path.cpp)
+endif()
+
 add_library(libDCOM
   ${PROTOBUFDCOMPLUGIN_EXPORT_HEADER}
   ${PROTOBUFDCOMPLUGIN_VERSION_HEADER}
@@ -45,7 +52,7 @@ add_library(libDCOM
   md5Ex.h
   Md5GuidGenerator.cpp
   Md5GuidGenerator.h
-  path.cpp
+  ${FILE_TEMPLATE}
   path.h
   protofunc.cpp
   protofunc.h

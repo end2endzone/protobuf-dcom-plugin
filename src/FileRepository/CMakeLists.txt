@@ -11,6 +11,8 @@ add_library(FileRepository
   EmbeddedFileClientHeader.h
   EmbeddedFileClientProject.cpp
   EmbeddedFileClientProject.h
+  EmbeddedFileCMakeLists.cpp
+  EmbeddedFileCMakeLists.h
   EmbeddedFileErrorHandlersCpp.cpp
   EmbeddedFileErrorHandlersCpp.h
   EmbeddedFileErrorHandlersHeader.cpp

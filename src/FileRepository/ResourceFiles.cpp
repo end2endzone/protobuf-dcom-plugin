@@ -8,6 +8,7 @@ FileList getResourceFiles()
   files.push_back(&bin2cpp::getClientFiltersFile());
   files.push_back(&bin2cpp::getClientHeaderFile());
   files.push_back(&bin2cpp::getClientProjectFile());
+  files.push_back(&bin2cpp::getCMakeListsFile());
   files.push_back(&bin2cpp::getErrorHandlersCppFile());
   files.push_back(&bin2cpp::getErrorHandlersHeaderFile());
   files.push_back(&bin2cpp::getIComErrorProviderFile());

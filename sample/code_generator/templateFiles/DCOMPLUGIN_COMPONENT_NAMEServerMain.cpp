@@ -4,8 +4,17 @@
 #define WIN32_LEAN_AND_MEAN    // Exclude rarely-used stuff from Windows headers
 #include <windows.h>
 
-#include <objbase.h> // 
-#include "DCOMPLUGIN_COMPONENT_NAMEServer_h.h"
+#ifdef CMAKE_INTDIR
+  #ifdef NDEBUG
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Release/DCOMPLUGIN_COMPONENT_NAMEServer.h"  // interface declaration
+  #else
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Debug/DCOMPLUGIN_COMPONENT_NAMEServer.h"    // interface declaration
+  #endif
+#else
+  #include "DCOMPLUGIN_COMPONENT_NAMEServer_h.h" // interface declaration
+#endif
+
+#include <objbase.h>
 #include "DCOMPLUGIN_COMPONENT_NAMEServer.h"
 #include <stdio.h>
 

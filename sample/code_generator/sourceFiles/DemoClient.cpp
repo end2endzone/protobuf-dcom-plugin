@@ -4,8 +4,19 @@
 #include "DemoClient.h"
 
 #include <comdef.h> //for CoInitialize and CoUninitialize
-#include "DemoServer_h.h" // interface declaration
-#include "DemoServer_i.c" // IID, CLSID
+
+#ifdef CMAKE_INTDIR
+  #ifdef NDEBUG
+    #include "DemoServer.dir/Release/DemoServer.h"   // interface declaration
+    #include "DemoServer.dir/Release/DemoServer_i.c" // IID, CLSID
+  #else
+    #include "DemoServer.dir/Debug/DemoServer.h"   // interface declaration
+    #include "DemoServer.dir/Debug/DemoServer_i.c" // IID, CLSID
+  #endif
+#else
+  #include "DemoServer_h.h" // interface declaration
+  #include "DemoServer_i.c" // IID, CLSID
+#endif
 
 #include "MessageSerializer.h"
 #include "ErrorHandlers.h"

@@ -23,6 +23,7 @@ echo.
 echo.
 
 cd /d %TARGET_FILES_DIR%
+bin2cpp --file=%SOURCE_FILES_DIR%\CMakeLists.txt                                         --output=. --headerfile=EmbeddedFileCMakeLists.h                 --identifier=CMakeLists              --override
 bin2cpp --file=%SOURCE_FILES_DIR%\DCOMPLUGIN_COMPONENT_NAME.sln                          --output=. --headerfile=EmbeddedFileSolution.h                   --identifier=Solution                --override
 bin2cpp --file=%SOURCE_FILES_DIR%\DCOMPLUGIN_COMPONENT_NAMEClient.cpp                    --output=. --headerfile=EmbeddedFileClientCpp.h                  --identifier=ClientCpp               --override
 bin2cpp --file=%SOURCE_FILES_DIR%\DCOMPLUGIN_COMPONENT_NAMEClient.h                      --output=. --headerfile=EmbeddedFileClientHeader.h               --identifier=ClientHeader            --override

@@ -4,8 +4,17 @@
 #define WIN32_LEAN_AND_MEAN    // Exclude rarely-used stuff from Windows headers
 #include <windows.h>
 
-#include <objbase.h> // 
-#include "DemoServer_h.h"
+#ifdef CMAKE_INTDIR
+  #ifdef NDEBUG
+    #include "DemoServer.dir/Release/DemoServer.h"  // interface declaration
+  #else
+    #include "DemoServer.dir/Debug/DemoServer.h"    // interface declaration
+  #endif
+#else
+  #include "DemoServer_h.h" // interface declaration
+#endif
+
+#include <objbase.h>
 #include "DemoServer.h"
 #include <stdio.h>
 

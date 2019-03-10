@@ -4,8 +4,19 @@
 #include "DCOMPLUGIN_COMPONENT_NAMEClient.h"
 
 #include <comdef.h> //for CoInitialize and CoUninitialize
-#include "DCOMPLUGIN_COMPONENT_NAMEServer_h.h" // interface declaration
-#include "DCOMPLUGIN_COMPONENT_NAMEServer_i.c" // IID, CLSID
+
+#ifdef CMAKE_INTDIR
+  #ifdef NDEBUG
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Release/DCOMPLUGIN_COMPONENT_NAMEServer.h"   // interface declaration
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Release/DCOMPLUGIN_COMPONENT_NAMEServer_i.c" // IID, CLSID
+  #else
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Debug/DCOMPLUGIN_COMPONENT_NAMEServer.h"   // interface declaration
+    #include "DCOMPLUGIN_COMPONENT_NAMEServer.dir/Debug/DCOMPLUGIN_COMPONENT_NAMEServer_i.c" // IID, CLSID
+  #endif
+#else
+  #include "DCOMPLUGIN_COMPONENT_NAMEServer_h.h" // interface declaration
+  #include "DCOMPLUGIN_COMPONENT_NAMEServer_i.c" // IID, CLSID
+#endif
 
 #include "MessageSerializer.h"
 #include "ErrorHandlers.h"

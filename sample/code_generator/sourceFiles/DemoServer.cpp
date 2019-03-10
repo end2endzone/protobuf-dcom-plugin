@@ -1,6 +1,18 @@
-#include <objbase.h> // 
-#include "DemoServer_h.h"
-#include "DemoServer_i.c"
+#include <objbase.h>
+
+#ifdef CMAKE_INTDIR
+  #ifdef NDEBUG
+    #include "DemoServer.dir/Release/DemoServer.h"   // interface declaration
+    #include "DemoServer.dir/Release/DemoServer_i.c" // IID, CLSID
+  #else
+    #include "DemoServer.dir/Debug/DemoServer.h"   // interface declaration
+    #include "DemoServer.dir/Debug/DemoServer_i.c" // IID, CLSID
+  #endif
+#else
+  #include "DemoServer_h.h" // interface declaration
+  #include "DemoServer_i.c" // IID, CLSID
+#endif
+
 #include <comdef.h>
 #include "Registry.h"
 #include "DemoServer.h"
