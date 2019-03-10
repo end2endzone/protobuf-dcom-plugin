@@ -44,6 +44,9 @@ set(PROTOBUF_INSTALL_CMAKE_DIR    ${PROTOBUF_INSTALL_LIB_DIR}) # CMake files (*.
 if (WIN32)
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
   add_definitions(/wd4244 /wd4267 /wd4018 /wd4355 /wd4800 /wd4251 /wd4996 /wd4146 /wd4305)
+
+  # Silence the following error: C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\hash_map(17): error C2338: <hash_map> is deprecated and will be REMOVED. Please use <unordered_map>. You can define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS to acknowledge that you have received this warning.
+  add_definitions(-D_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS)
 endif()
 
 # Define include directories for source code.
