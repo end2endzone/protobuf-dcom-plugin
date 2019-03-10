@@ -1,6 +1,7 @@
 Changes for 0.2.0
 
 * New feature: Implemented CMake support.
+* New feature: Implemented Appveyor's support.
 
 Changes for 0.1.0
 
