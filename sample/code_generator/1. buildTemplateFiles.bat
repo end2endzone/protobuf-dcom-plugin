@@ -17,7 +17,7 @@ copy /v .\sourceFiles\DemoServer.h                                 .\templateFil
 copy /v .\sourceFiles\DemoServer.idl                               .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServer.idl                
 copy /v .\sourceFiles\DemoServer.vcxproj                           .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServer.vcxproj            
 copy /v .\sourceFiles\DemoServer.vcxproj.filters                   .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServer.vcxproj.filters    
-copy /v .\sourceFiles\DemoServerImpl.cpp                           .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServerImpl.template.cpp            
+copy /v .\sourceFiles\DemoServerImpl.cpp                           .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServerImpl.template.cpp   
 copy /v .\sourceFiles\DemoServerImpl.h                             .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServerImpl.h              
 copy /v .\sourceFiles\DemoServerImpl.vcxproj                       .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServerImpl.vcxproj        
 copy /v .\sourceFiles\DemoServerImpl.vcxproj.filters               .\templateFiles\DCOMPLUGIN_COMPONENT_NAMEServerImpl.vcxproj.filters

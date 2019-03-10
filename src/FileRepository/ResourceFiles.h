@@ -32,6 +32,6 @@
 #include "EmbeddedFileUnregisterServerDebug.h"
 #include "EmbeddedFileUnregisterServerRelease.h"
 
-typedef std::vector<bin2cpp::File *> FileList;
+typedef std::vector<const bin2cpp::File *> FileList;
 
 FileList getResourceFiles();
