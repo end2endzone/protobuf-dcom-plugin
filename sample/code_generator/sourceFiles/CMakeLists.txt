@@ -99,8 +99,12 @@ add_executable(DemoServer WIN32
   SmartPointers.h
   DemoServer.h
   DemoServer.cpp
-  DemoServer.idl
   DemoServerMain.cpp
+
+  # The current implementation adds the IDL file directly into the project source files.
+  # This let CMake handle the MIDL compilation automatically and does not give us control on how to name the generated files (header, iid and proxy)
+  # TODO: Investigate the use of invoking the MIDL compilor manually as described here: https://stackoverflow.com/questions/46878906/invoke-midl-compiler-from-cmake
+  DemoServer.idl
 )
 
 add_library(DemoServerImpl

@@ -99,8 +99,12 @@ add_executable(DCOMPLUGIN_COMPONENT_NAMEServer WIN32
   SmartPointers.h
   DCOMPLUGIN_COMPONENT_NAMEServer.h
   DCOMPLUGIN_COMPONENT_NAMEServer.cpp
-  DCOMPLUGIN_COMPONENT_NAMEServer.idl
   DCOMPLUGIN_COMPONENT_NAMEServerMain.cpp
+
+  # The current implementation adds the IDL file directly into the project source files.
+  # This let CMake handle the MIDL compilation automatically and does not give us control on how to name the generated files (header, iid and proxy)
+  # TODO: Investigate the use of invoking the MIDL compilor manually as described here: https://stackoverflow.com/questions/46878906/invoke-midl-compiler-from-cmake
+  DCOMPLUGIN_COMPONENT_NAMEServer.idl
 )
 
 add_library(DCOMPLUGIN_COMPONENT_NAMEServerImpl
